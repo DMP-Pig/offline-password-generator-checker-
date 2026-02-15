@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>离线强密码生成器 - 安全、私密、无数据上传</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>离线强密码生成器</h1>
+            <p class="subtitle">🔒 100% 离线运行，无数据上传，确保您的密码安全</p>
+        </header>
+
+        <main>
+            <section class="display-section">
+                <div class="password-display">
+                    <input type="text" id="password-result" readonly placeholder="点击生成按钮">
+                    <button id="copy-btn" title="复制到剪贴板">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+                <div id="copy-message" class="hidden">已复制到剪贴板！</div>
+            </section>
+
+            <section class="settings-section">
+                <div class="setting-item">
+                    <label for="length">密码长度: <span id="length-val">16</span></label>
+                    <input type="range" id="length" min="4" max="50" value="16">
+                </div>
+
+                <div class="options-grid">
+                    <div class="option-item">
+                        <input type="checkbox" id="uppercase" checked>
+                        <label for="uppercase">大写字母 (A-Z)</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="lowercase" checked>
+                        <label for="lowercase">小写字母 (a-z)</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="numbers" checked>
+                        <label for="numbers">数字 (0-9)</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="symbols" checked>
+                        <label for="symbols">特殊字符 (!@#$%^&*)</label>
+                    </div>
+                </div>
+
+                <button id="generate-btn" class="primary-btn">生成强密码</button>
+            </section>
+
+            <section class="strength-section">
+                <h3>密码强度检测</h3>
+                <div class="strength-input-wrapper">
+                    <input type="password" id="check-input" placeholder="输入密码测试强度...">
+                    <button id="toggle-password" type="button">👁️</button>
+                </div>
+                <div class="strength-meter">
+                    <div id="strength-bar"></div>
+                </div>
+                <p id="strength-text">输入密码查看强度</p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="badge">
+                <span class="dot green"></span> 
+            </div>
+            <p>本工具完全基于客户端 JavaScript 运行。您的密码从未离开过您的设备。</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
